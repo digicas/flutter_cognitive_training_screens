@@ -18,10 +18,9 @@ dependencies:
     git:
       url: https://github.com/digicas/flutter_minimalistic_onscreen_keyboard
   cvicebnice_overlays:
-    path: ../cvicebnice_overlays
-    # git:
-    #   url: https://github.com/digicas/flutter_cognitive_training_screens
-    #   path: flutter/cognitive_traning_screens/cvicebnice_overlays
+    git:
+      url: https://github.com/digicas/flutter_cognitive_training_screens.git
+      path: cvicebnice_overlays
   font_awesome_flutter: ^10.2.1
 
 dev_dependencies:
