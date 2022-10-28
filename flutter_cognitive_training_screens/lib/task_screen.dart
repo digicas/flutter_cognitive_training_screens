@@ -16,10 +16,12 @@ class TaskScreen extends StatefulWidget {
     super.key,
     required this.level,
     this.taskType = TriangleLevelType.funnel,
+    this.onLevelFinished,
   });
 
   final Level level;
   final TriangleLevelType taskType;
+  final VoidCallback? onLevelFinished;
 
   @override
   TaskScreenState createState() => TaskScreenState();
@@ -145,6 +147,7 @@ class TaskScreenState extends State<TaskScreen> {
                           child: const Text('HOTOVO?'),
                           onPressed: () {
                             setState(() {
+                              widget.onLevelFinished?.call();
                               taskSubmitted = true;
                               final currentFocus = FocusScope.of(context);
                               if (!currentFocus.hasPrimaryFocus) {
