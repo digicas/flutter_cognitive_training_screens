@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pyramids_funnels/models/cell_type.dart';
+import 'package:flutter_cognitive_training_screens/models/cell_type.dart';
 import 'package:on_screen_keyboard/cursor.dart';
 
 class Cell extends StatelessWidget {

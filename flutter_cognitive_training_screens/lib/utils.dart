@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cognitive_training_screens/models/level_type.dart';
+import 'package:flutter_cognitive_training_screens/task_screen.dart';
 import 'package:levels_dart_pyramid_funnels/models/level_tree/level_tree.dart';
-import 'package:pyramids_funnels/models/level_type.dart';
-import 'package:pyramids_funnels/task_screen.dart';
 
 ButtonStyle get stadiumButtonStyle => ButtonStyle(
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(

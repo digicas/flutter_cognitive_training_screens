@@ -2,12 +2,12 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_cognitive_training_screens/models/level_type.dart';
+import 'package:flutter_cognitive_training_screens/models/submission_controller.dart';
+import 'package:flutter_cognitive_training_screens/utils.dart';
+import 'package:flutter_cognitive_training_screens/widgets/task.dart';
 import 'package:levels_dart_pyramid_funnels/models/level/level.dart';
 import 'package:levels_dart_pyramid_funnels/models/level_tree/level_tree.dart';
-import 'package:pyramids_funnels/models/level_type.dart';
-import 'package:pyramids_funnels/models/submission_controller.dart';
-import 'package:pyramids_funnels/utils.dart';
-import 'package:pyramids_funnels/widgets/task.dart';
 import 'package:on_screen_keyboard/on_screen_keyboard.dart';
 import 'package:cvicebnice_overlays/cvicebnice_overlays.dart';
 

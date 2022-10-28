@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cognitive_training_screens/painters/funnel_painter.dart';
 import 'package:levels_dart_pyramid_funnels/models/level_tree/level_tree.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pyramids_funnels/painters/funnel_painter.dart';
 
 /// Generates the preview Widget for the Funnel task type
 /// Reflects the size constraint of 150x200

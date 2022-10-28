@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cognitive_training_screens/models/cell_type.dart';
+import 'package:flutter_cognitive_training_screens/models/level_type.dart';
+import 'package:flutter_cognitive_training_screens/models/submission_controller.dart';
+import 'package:flutter_cognitive_training_screens/painters/funnel_painter.dart';
+import 'package:flutter_cognitive_training_screens/painters/pyramid_painter.dart';
+import 'package:flutter_cognitive_training_screens/widgets/cell.dart';
 import 'package:levels_dart_pyramid_funnels/models/level/level.dart';
-import 'package:pyramids_funnels/models/cell_type.dart';
-import 'package:pyramids_funnels/models/level_type.dart';
-import 'package:pyramids_funnels/models/submission_controller.dart';
-import 'package:pyramids_funnels/painters/funnel_painter.dart';
-import 'package:pyramids_funnels/painters/pyramid_painter.dart';
-import 'package:pyramids_funnels/widgets/cell.dart';
 
 class Task extends StatelessWidget {
   const Task({
