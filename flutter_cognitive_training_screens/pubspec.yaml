@@ -14,13 +14,16 @@ dependencies:
   levels_dart_pyramid_funnels:
     git: 
       url: https://github.com/digicas/levels_dart_pyramid_funnels.git
+      ref: master
   on_screen_keyboard:
     git:
       url: https://github.com/digicas/flutter_minimalistic_onscreen_keyboard.git
+      ref: master
   cvicebnice_overlays:
     git:
       url: https://github.com/digicas/flutter_cognitive_training_screens.git
       path: cvicebnice_overlays
+      ref: master
   font_awesome_flutter: ^10.2.1
 
 dev_dependencies:
