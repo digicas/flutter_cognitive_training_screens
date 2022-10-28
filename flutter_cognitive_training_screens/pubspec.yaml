@@ -1,7 +1,7 @@
 name: flutter_cognitive_training_screens
 description: A new Flutter package project.
 version: 0.0.1
-homepage: https://github.com/digicas/cvicebnice
+homepage: https://github.com/digicas/flutter_cognitive_training_screens
 publish_to: none
 
 environment:
@@ -20,7 +20,7 @@ dependencies:
   cvicebnice_overlays:
     git:
       url: https://github.com/digicas/flutter_cognitive_training_screens
-      path: flutter_cognitive_training_screens/civcebnice_overlays
+      path: cvicebnice_overlays
   font_awesome_flutter: ^10.2.1
 
 dev_dependencies:

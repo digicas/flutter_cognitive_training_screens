@@ -1,7 +1,7 @@
 name: cvicebnice_overlays
 description: A new Flutter package project.
 version: 0.0.1
-homepage: https://github.com/digicas/cvicebnice
+homepage: https://github.com/digicas/flutter_cognitive_training_screens/cvicebnice_overlays
 publish_to: none
 
 environment:
