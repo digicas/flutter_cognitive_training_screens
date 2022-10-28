@@ -21,7 +21,7 @@ class TaskScreen extends StatefulWidget {
 
   final Level level;
   final TriangleLevelType taskType;
-  final VoidCallback? onLevelFinished;
+  final void Function(TriangleLevelType, int)? onLevelFinished;
 
   @override
   TaskScreenState createState() => TaskScreenState();
@@ -147,7 +147,8 @@ class TaskScreenState extends State<TaskScreen> {
                           child: const Text('HOTOVO?'),
                           onPressed: () {
                             setState(() {
-                              widget.onLevelFinished?.call();
+                              widget.onLevelFinished
+                                  ?.call(widget.taskType, _level.levelIndex);
                               taskSubmitted = true;
                               final currentFocus = FocusScope.of(context);
                               if (!currentFocus.hasPrimaryFocus) {
