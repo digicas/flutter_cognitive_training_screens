@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pyramid_funnel_levels/models/level_tree/level_tree.dart';
+import 'package:levels_dart_pyramid_funnels/models/level_tree/level_tree.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pyramids_funnels/painters/funnel_painter.dart';
 

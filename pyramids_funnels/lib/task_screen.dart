@@ -2,14 +2,13 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:pyramid_funnel_levels/models/level/level.dart';
-import 'package:pyramid_funnel_levels/models/level_tree/level_tree.dart';
+import 'package:levels_dart_pyramid_funnels/models/level/level.dart';
+import 'package:levels_dart_pyramid_funnels/models/level_tree/level_tree.dart';
 import 'package:pyramids_funnels/models/level_type.dart';
 import 'package:pyramids_funnels/models/submission_controller.dart';
 import 'package:pyramids_funnels/utils.dart';
 import 'package:pyramids_funnels/widgets/task.dart';
-import 'package:software_keyboard/keyboard.dart';
-import 'package:software_keyboard/keyboard_controller.dart';
+import 'package:on_screen_keyboard/on_screen_keyboard.dart';
 import 'package:cvicebnice_overlays/cvicebnice_overlays.dart';
 
 class TaskScreen extends StatefulWidget {
@@ -220,7 +219,7 @@ class TaskScreenState extends State<TaskScreen> {
               Positioned(
                 bottom: 0,
                 child: (!taskSubmitted && !optionsRequested)
-                    ? SoftwareKeyboard<int?>(
+                    ? OnScreenKeyboard<int?>(
                         controller: keyboardController,
                         onValuesChanged: (values) {
                           setState(() => submissionController.cells = values);

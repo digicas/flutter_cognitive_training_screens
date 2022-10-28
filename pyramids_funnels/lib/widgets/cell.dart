@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pyramids_funnels/models/cell_type.dart';
-import 'package:software_keyboard/cursor.dart';
+import 'package:on_screen_keyboard/cursor.dart';
 
 class Cell extends StatelessWidget {
   const Cell({

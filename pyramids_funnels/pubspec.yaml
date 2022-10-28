@@ -1,4 +1,4 @@
-name: pyramids_funnels
+name: flutter_cognitive_training_screens
 description: A new Flutter package project.
 version: 0.0.1
 homepage: https://github.com/digicas/cvicebnice
@@ -11,12 +11,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  pyramid_funnel_levels:
-    path: ../pyramid_funnel_levels
-  software_keyboard:
-    path: ../software_keyboard
+  levels_dart_pyramid_funnels:
+    git: 
+      url: https://github.com/digicas/levels_dart_pyramid_funnels
+  on_screen_keyboard:
+    git:
+      url: https://github.com/digicas/flutter_minimalistic_onscreen_keyboard
   cvicebnice_overlays:
-    path: ../cvicebnice_overlays
+    git:
+      url: https://github.com/digicas/flutter_cognitive_training_screens
+      path: flutter_cognitive_training_screens/civcebnice_overlays
   font_awesome_flutter: ^10.2.1
 
 dev_dependencies:

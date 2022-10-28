@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pyramid_funnel_levels/models/level/level.dart';
+import 'package:levels_dart_pyramid_funnels/models/level/level.dart';
 
 class SubmissionController extends ChangeNotifier {
   SubmissionController({required this.level}) {

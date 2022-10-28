@@ -1,7 +1,4 @@
-library pyramids_funnels;
+library flutter_cognitive_training_screens;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'utils.dart';
+export 'widgets/previews/index.dart';
