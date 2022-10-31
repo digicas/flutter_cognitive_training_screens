@@ -19,7 +19,7 @@ dev_dependencies:
 
 flutter:
   assets:
-    - lib/assets/ada_full_body_correct.png
-    - lib/assets/ada_full_body_wrong.png
-    - lib/assets/ada_full_body.png
+    - assets/ada_full_body_correct.png
+    - assets/ada_full_body_wrong.png
+    - assets/ada_full_body.png
 

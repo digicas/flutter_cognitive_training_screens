@@ -61,7 +61,8 @@ class OptionsOverlay extends StatelessWidget {
               GestureDetector(
                 onTap: onBackToLevel,
                 child: Image.asset(
-                  'ada_full_body.png',
+                  'assets/ada_full_body.png',
+                  package: 'cvicebnice_overlays',
                   width: 100,
                 ),
               ),
