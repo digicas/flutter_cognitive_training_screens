@@ -170,6 +170,7 @@ class TaskScreenState extends State<TaskScreen> {
                   canDecreaseLevel: _level.levelIndex > 2,
                   levelInfoText: '${_level.levelIndex} ze 100',
                   showBackground: _showBackground,
+                  exitOptionText: widget.backOptionText,
                   onBackToLevel: () {
                     setState(() {
                       optionsRequested = false;

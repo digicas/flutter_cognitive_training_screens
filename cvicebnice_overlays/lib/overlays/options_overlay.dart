@@ -47,7 +47,7 @@ class OptionsOverlay extends StatelessWidget {
   /// Whether to show button to increase level
   final bool canIncreaseLevel;
 
-  final String exitOptionText;
+  final String? exitOptionText;
 
   @override
   Widget build(BuildContext context) {
