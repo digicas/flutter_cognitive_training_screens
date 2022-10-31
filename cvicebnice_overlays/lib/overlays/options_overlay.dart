@@ -17,7 +17,7 @@ class OptionsOverlay extends StatelessWidget {
     this.onSwitchBackgroundImage,
     this.canDecreaseLevel = true,
     this.canIncreaseLevel = true,
-    this.exitOptionText = 'ZPĚT NA HLAVNÍ VÝBĚR',
+    this.backOptionText = 'ZPĚT NA HLAVNÍ VÝBĚR',
   });
 
   /// Callback when getting back from this options overlay
@@ -47,7 +47,7 @@ class OptionsOverlay extends StatelessWidget {
   /// Whether to show button to increase level
   final bool canIncreaseLevel;
 
-  final String? exitOptionText;
+  final String? backOptionText;
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +125,7 @@ class OptionsOverlay extends StatelessWidget {
               onPressed: onDecreaseLevel,
             ),
           ElevatedButton.icon(
-            label: Text(exitOptionText!),
+            label: Text(backOptionText!),
             icon: const Icon(Icons.assignment),
             style: stadiumButtonStyle,
             onPressed: onBack,

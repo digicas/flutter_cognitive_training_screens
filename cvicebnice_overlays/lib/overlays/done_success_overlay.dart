@@ -10,11 +10,13 @@ class DoneSuccessOverlay extends StatelessWidget {
     this.onNextUpLevel,
     this.onNextSameLevel,
     this.onBack,
+    this.backOptionText = 'ZPĚT NA HLAVNÍ VÝBĚR',
   });
 
   final VoidCallback? onNextUpLevel;
   final VoidCallback? onNextSameLevel;
   final VoidCallback? onBack;
+  final String? backOptionText;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +49,6 @@ class DoneSuccessOverlay extends StatelessWidget {
               ),
             ],
           ),
-//          Container(height: 20,),
           ElevatedButton.icon(
             label: const Text('ZKUSIT TĚŽŠÍ'),
             icon: const Icon(Icons.landscape),
@@ -61,7 +62,7 @@ class DoneSuccessOverlay extends StatelessWidget {
             onPressed: onNextSameLevel,
           ),
           ElevatedButton.icon(
-            label: const Text('ZPĚT NA VÝBĚR TŘÍDY'),
+            label: Text(backOptionText!),
             icon: const Icon(Icons.assignment),
             style: stadiumButtonStyle,
             onPressed: onBack,

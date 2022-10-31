@@ -169,13 +169,13 @@ class TaskScreenState extends State<TaskScreen> {
                   canDecreaseLevel: _level.levelIndex > 2,
                   levelInfoText: '${_level.levelIndex} ze 100',
                   showBackground: _showBackground,
-                  exitOptionText: widget.backOptionText,
+                  backOptionText: widget.backOptionText,
+                  onBack: widget.onBackOption ?? Navigator.of(context).pop,
                   onBackToLevel: () {
                     setState(() {
                       optionsRequested = false;
                     });
                   },
-                  onBack: widget.onBackOption ?? Navigator.of(context).pop,
                   onRestartLevel: () {
                     setState(() {
                       submissionController.initiateForLevel(_level);
@@ -200,20 +200,15 @@ class TaskScreenState extends State<TaskScreen> {
                 ),
               if (taskSubmitted && submissionController.isSolved)
                 DoneSuccessOverlay(
-                  onNextUpLevel: () {
-                    setState(() {
-                      _level = LevelTree.getMoreDifficultLevel(_level);
-                      levelRegenerate();
-                    });
-                  },
-                  onNextSameLevel: () {
-                    setState(
-                      levelRegenerate,
-                    );
-                  },
-                  onBack: () {
-                    Navigator.of(context).pop();
-                  },
+                  backOptionText: widget.backOptionText,
+                  onBack: widget.onBackOption ?? Navigator.of(context).pop,
+                  onNextUpLevel: () => setState(() {
+                    _level = LevelTree.getMoreDifficultLevel(_level);
+                    levelRegenerate();
+                  }),
+                  onNextSameLevel: () => setState(
+                    levelRegenerate,
+                  ),
                 ),
               if (taskSubmitted && !submissionController.isSolved)
                 DoneWrongOverlay(
