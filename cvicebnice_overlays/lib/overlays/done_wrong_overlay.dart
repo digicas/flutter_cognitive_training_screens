@@ -19,7 +19,6 @@ class DoneWrongOverlay extends StatelessWidget {
             children: <Widget>[
               Image.asset(
                 'assets/ada_full_body_wrong.png',
-                package: 'cvicebnice_overlays',
                 width: 100,
               ),
               Container(width: 16),

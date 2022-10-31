@@ -65,7 +65,6 @@ class OptionsOverlay extends StatelessWidget {
                 onTap: onBackToLevel,
                 child: Image.asset(
                   'assets/ada_full_body.png',
-                  package: 'cvicebnice_overlays',
                   width: 100,
                 ),
               ),
