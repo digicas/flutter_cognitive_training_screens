@@ -18,12 +18,14 @@ class TaskScreen extends StatefulWidget {
     this.taskType = TriangleLevelType.funnel,
     this.onLevelFinished,
     this.onBackOption,
+    this.backOptionText,
   });
 
   final Level level;
   final TriangleLevelType taskType;
   final void Function(TriangleLevelType, int)? onLevelFinished;
   final VoidCallback? onBackOption;
+  final String? backOptionText;
 
   @override
   TaskScreenState createState() => TaskScreenState();
