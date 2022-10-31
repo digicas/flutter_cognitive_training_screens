@@ -27,8 +27,7 @@ class DoneSuccessOverlay extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Image.asset(
-                'ada_full_body_correct.png',
-                package: 'cvicebnice_overlays',
+                'assets/ada_full_body_correct.png',
                 width: 120,
               ),
               Container(width: 16),

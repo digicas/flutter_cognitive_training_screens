@@ -141,7 +141,7 @@ class TaskScreenState extends State<TaskScreen> {
                           });
                         },
                         child: Image.asset(
-                          'ada_head_only.png',
+                          'assets/ada_head_only.png',
                           package: 'flutter_cognitive_training_screens',
                           width: 100,
                         ),
