@@ -18,7 +18,7 @@ class DoneWrongOverlay extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Image.asset(
-                'assets/ada_full_body_wrong.png',
+                'ada_full_body_wrong.png',
                 width: 100,
               ),
               Container(width: 16),
