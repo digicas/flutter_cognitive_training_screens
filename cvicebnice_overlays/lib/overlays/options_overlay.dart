@@ -126,7 +126,7 @@ class OptionsOverlay extends StatelessWidget {
               onPressed: onDecreaseLevel,
             ),
           ElevatedButton.icon(
-            label: Text(exitOptionText),
+            label: Text(exitOptionText!),
             icon: const Icon(Icons.assignment),
             style: stadiumButtonStyle,
             onPressed: onBack,
