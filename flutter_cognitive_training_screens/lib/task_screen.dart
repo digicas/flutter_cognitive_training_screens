@@ -17,11 +17,13 @@ class TaskScreen extends StatefulWidget {
     required this.level,
     this.taskType = TriangleLevelType.funnel,
     this.onLevelFinished,
+    this.onBackOption,
   });
 
   final Level level;
   final TriangleLevelType taskType;
   final void Function(TriangleLevelType, int)? onLevelFinished;
+  final VoidCallback? onBackOption;
 
   @override
   TaskScreenState createState() => TaskScreenState();
@@ -171,9 +173,7 @@ class TaskScreenState extends State<TaskScreen> {
                       optionsRequested = false;
                     });
                   },
-                  onBack: () {
-                    Navigator.of(context).pop();
-                  },
+                  onBack: widget.onBackOption ?? Navigator.of(context).pop,
                   onRestartLevel: () {
                     setState(() {
                       submissionController.initiateForLevel(_level);
