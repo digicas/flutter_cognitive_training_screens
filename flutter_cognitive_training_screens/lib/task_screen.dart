@@ -19,11 +19,13 @@ class TaskScreen extends StatefulWidget {
     this.onLevelFinished,
     this.onBackOption,
     this.backOptionText,
+    this.onLevelChanged,
   });
 
   final Level level;
   final TriangleLevelType taskType;
   final void Function(TriangleLevelType, int)? onLevelFinished;
+  final void Function(TriangleLevelType, int)? onLevelChanged;
   final VoidCallback? onBackOption;
   final String? backOptionText;
 
@@ -192,6 +194,8 @@ class TaskScreenState extends State<TaskScreen> {
                     setState(
                       () {
                         _level = LevelTree.getLessDifficultLevel(_level);
+                        widget.onLevelChanged
+                            ?.call(widget.taskType, _level.levelIndex);
                         levelRegenerate();
                         optionsRequested = false;
                       },
@@ -204,11 +208,17 @@ class TaskScreenState extends State<TaskScreen> {
                   onBack: widget.onBackOption ?? Navigator.of(context).pop,
                   onNextUpLevel: () => setState(() {
                     _level = LevelTree.getMoreDifficultLevel(_level);
+                    widget.onLevelChanged
+                        ?.call(widget.taskType, _level.levelIndex);
                     levelRegenerate();
                   }),
-                  onNextSameLevel: () => setState(
-                    levelRegenerate,
-                  ),
+                  onNextSameLevel: () {
+                    setState(
+                      levelRegenerate,
+                    );
+                    widget.onLevelChanged
+                        ?.call(widget.taskType, _level.levelIndex);
+                  },
                 ),
               if (taskSubmitted && !submissionController.isSolved)
                 DoneWrongOverlay(
