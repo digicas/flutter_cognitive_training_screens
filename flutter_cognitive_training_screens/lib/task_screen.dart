@@ -153,12 +153,14 @@ class TaskScreenState extends State<TaskScreen> {
                           child: const Text('HOTOVO?'),
                           onPressed: () {
                             setState(() {
-                              widget.onLevelFinished
-                                  ?.call(widget.taskType, _level.levelIndex);
                               taskSubmitted = true;
                               final currentFocus = FocusScope.of(context);
                               if (!currentFocus.hasPrimaryFocus) {
                                 currentFocus.unfocus();
+                              }
+                              if(taskSubmitted && submissionController.isSolved) {
+                                widget.onLevelFinished
+                                  ?.call(widget.taskType, _level.levelIndex);
                               }
                             });
                           },
