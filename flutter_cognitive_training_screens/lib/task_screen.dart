@@ -56,6 +56,7 @@ class TaskScreenState extends State<TaskScreen> {
     levelInit();
 
     super.initState();
+    
   }
 
   void levelInit() {
