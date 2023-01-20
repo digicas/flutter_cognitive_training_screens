@@ -24,6 +24,7 @@ dependencies:
       url: https://github.com/digicas/flutter_cognitive_training_screens.git
       path: cvicebnice_overlays
       ref: master
+      
   font_awesome_flutter: ^10.2.1
 
 dev_dependencies:
