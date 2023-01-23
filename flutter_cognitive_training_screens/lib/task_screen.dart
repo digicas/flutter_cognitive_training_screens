@@ -133,16 +133,10 @@ class TaskScreenState extends State<TaskScreen> {
                   top: 20,
                   right: 20,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            /// must hide keyboard before option overlay is
-                            ///  shown
-                            optionsRequested = true;
-                          });
-                        },
+                        onTap: () => setState(() => optionsRequested = true),
                         child: Image.asset(
                           'assets/ada_head_only.png',
                           width: 100,
@@ -165,7 +159,13 @@ class TaskScreenState extends State<TaskScreen> {
                               }
                             });
                           },
-                        ),
+                        )
+                      else
+                        ElevatedButton(
+                          style: stadiumButtonStyle,
+                          child: const Text('Co můžu udělat?'),
+                          onPressed:() => setState(() => optionsRequested = true),
+                        )
                     ],
                   ),
                 ),
