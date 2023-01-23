@@ -163,6 +163,11 @@ class TaskScreenState extends State<TaskScreen> {
                       else
                         ElevatedButton(
                           style: stadiumButtonStyle.copyWith(
+                            textStyle: MaterialStateProperty.all<TextStyle>(
+                              const TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
                             backgroundColor: MaterialStateProperty.all<Color>(
                               Colors.white,
                             ),
