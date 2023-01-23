@@ -162,7 +162,17 @@ class TaskScreenState extends State<TaskScreen> {
                         )
                       else
                         ElevatedButton(
-                          style: stadiumButtonStyle,
+                          style: stadiumButtonStyle.copyWith(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                              Colors.white,
+                            ),
+                            side: MaterialStateProperty.all<BorderSide>(
+                              const BorderSide(
+                                color:  Color(0xff96365f),
+                                width: 1,
+                              ),
+                            )
+                          ),
                           child: const Text('Co můžu udělat?'),
                           onPressed:() => setState(() => optionsRequested = true),
                         )
