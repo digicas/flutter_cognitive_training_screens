@@ -61,6 +61,8 @@ class TaskScreenState extends State<TaskScreen> {
 
   void levelInit() {
     _level.generate();
+    
+    focusedIndex = null;
 
     submissionController = SubmissionController(level: _level)
       ..addListener(_checkSolution)
