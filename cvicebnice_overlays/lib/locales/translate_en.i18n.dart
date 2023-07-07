@@ -35,10 +35,32 @@ class TranslateEn extends Translate {
   const TranslateEn();
   String get locale => "en";
   String get languageCode => "en";
-  String get success => """VÝBORNĚ!\n\nTak a můžeš pokračovat.""";
-  String get tryHarder => """null""";
+  String get success => """GREAT!\n\n Let's Continue""";
+  String get tryHarder => """TRY HARDER""";
+  String get sameDiff => """SAME DIFFICULTY""";
+  String get backDefault => """BACK TO MAIN MENU""";
+  String get wrong => """AJAJAJAJ!""";
+  String get tryAgain => """TRY TO FIX IT""";
+  String level(String info) => """YOU ARE AT LEVEL $info.
+
+ WHAT CAN I DO FOR YOU?""";
+  String get back => """GO BACK""";
+  String get imageOff => """HIDE IMAGE""";
+  String get imageOn => """SHOW IMAGE""";
+  String get restart => """CLEAR AND TRY AGAIN""";
+  String get easier => """TOO HARD, EASIER LEVEL""";
 }
 
 Map<String, String> get translateEnMap => {
-      """success""": """VÝBORNĚ!\n\nTak a můžeš pokračovat.""",
+      """success""": """GREAT!\n\n Let's Continue""",
+      """tryHarder""": """TRY HARDER""",
+      """sameDiff""": """SAME DIFFICULTY""",
+      """backDefault""": """BACK TO MAIN MENU""",
+      """wrong""": """AJAJAJAJ!""",
+      """tryAgain""": """TRY TO FIX IT""",
+      """back""": """GO BACK""",
+      """imageOff""": """HIDE IMAGE""",
+      """imageOn""": """SHOW IMAGE""",
+      """restart""": """CLEAR AND TRY AGAIN""",
+      """easier""": """TOO HARD, EASIER LEVEL""",
     };
