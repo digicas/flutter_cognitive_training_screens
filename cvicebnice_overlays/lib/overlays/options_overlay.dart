@@ -1,3 +1,5 @@
+import 'package:cvicebnice_overlays/locales/translate.i18n.dart';
+import 'package:cvicebnice_overlays/locales/translate_en.i18n.dart';
 import 'package:cvicebnice_overlays/overlays/shader_overlay.dart';
 import 'package:cvicebnice_overlays/utils.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +8,7 @@ import 'package:flutter/material.dart';
 ///
 /// To be used in [Stack]; uses [ShaderOverlay] as a base widget
 class OptionsOverlay extends StatelessWidget {
-  const OptionsOverlay({
+  OptionsOverlay({
     super.key,
     required this.levelInfoText,
     required this.showBackground,
@@ -17,8 +19,11 @@ class OptionsOverlay extends StatelessWidget {
     this.onSwitchBackgroundImage,
     this.canDecreaseLevel = true,
     this.canIncreaseLevel = true,
-    this.backOptionText = 'ZPĚT NA HLAVNÍ VÝBĚR',
-  });
+    this.backOptionText,
+    this.lang = 'cs',
+  }) {
+    tr = lang == 'cs' ? const Translate() : const TranslateEn();
+  }
 
   /// Callback when getting back from this options overlay
   final VoidCallback? onBackToLevel;
@@ -49,6 +54,10 @@ class OptionsOverlay extends StatelessWidget {
 
   final String? backOptionText;
 
+  final String lang;
+
+  late Translate tr;
+
   @override
   Widget build(BuildContext context) {
 //    removeEditableFocus(context);
@@ -78,7 +87,7 @@ class OptionsOverlay extends StatelessWidget {
                   ),
                   padding: const EdgeInsets.all(20),
                   child: Text(
-                    'JSI NA ÚROVNI $levelInfoText.\n\nCO PRO TEBE MŮŽU UDĚLAT?',
+                    tr.level(levelInfoText),
                   ),
                 ),
               ),
@@ -87,7 +96,7 @@ class OptionsOverlay extends StatelessWidget {
           Container(height: 0),
           ElevatedButton.icon(
             autofocus: true,
-            label: const Text('NIC, CHCI ZPĚT'),
+            label: Text(tr.back),
             icon: const Icon(Icons.arrow_back_ios),
             style: stadiumButtonStyle,
             onPressed: onBackToLevel,
@@ -95,7 +104,7 @@ class OptionsOverlay extends StatelessWidget {
           if (showBackground)
             ElevatedButton.icon(
               autofocus: true,
-              label: const Text('VYPNOUT OBRÁZEK'),
+              label: Text(tr.imageOff),
               icon: const Icon(Icons.image),
               style: stadiumButtonStyle,
               onPressed: onSwitchBackgroundImage,
@@ -103,14 +112,14 @@ class OptionsOverlay extends StatelessWidget {
           else
             ElevatedButton.icon(
               autofocus: true,
-              label: const Text('UKAZOVAT OBRÁZEK'),
+              label: Text(tr.imageOn),
               icon: const Icon(Icons.add_photo_alternate),
               style: stadiumButtonStyle,
               onPressed: onSwitchBackgroundImage,
             ),
           ElevatedButton.icon(
             autofocus: true,
-            label: const Text('VYČISTIT A ZAČÍT ZNOVU'),
+            label: Text(tr.restart),
             icon: const Icon(Icons.refresh),
             style: stadiumButtonStyle,
             onPressed: onRestartLevel,
@@ -119,13 +128,13 @@ class OptionsOverlay extends StatelessWidget {
           /// show only if we can decrease level
           if (canDecreaseLevel)
             ElevatedButton.icon(
-              label: const Text('MOC TĚŽKÉ, CHCI LEHČÍ'),
+              label: Text(tr.easier),
               icon: const Icon(Icons.file_download),
               style: stadiumButtonStyle,
               onPressed: onDecreaseLevel,
             ),
           ElevatedButton.icon(
-            label: Text(backOptionText!),
+            label: Text(tr.backDefault),
             icon: const Icon(Icons.assignment),
             style: stadiumButtonStyle,
             onPressed: onBack,

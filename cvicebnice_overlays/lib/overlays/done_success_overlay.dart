@@ -1,3 +1,5 @@
+import 'package:cvicebnice_overlays/locales/translate.i18n.dart';
+import 'package:cvicebnice_overlays/locales/translate_en.i18n.dart';
 import 'package:cvicebnice_overlays/overlays/shader_overlay.dart';
 import 'package:cvicebnice_overlays/utils.dart';
 
@@ -5,18 +7,24 @@ import 'package:flutter/material.dart';
 
 /// Overlay screen when successful submission (incl. buttons to navigate next)
 class DoneSuccessOverlay extends StatelessWidget {
-  const DoneSuccessOverlay({
+  DoneSuccessOverlay({
     super.key,
     this.onNextUpLevel,
     this.onNextSameLevel,
     this.onBack,
-    this.backOptionText = 'ZPĚT NA HLAVNÍ VÝBĚR',
-  });
+    this.backOptionText,
+    this.lang = 'cs',
+  }) {
+    tr = lang == 'cs' ? const Translate() : const TranslateEn();
+  }
 
   final VoidCallback? onNextUpLevel;
   final VoidCallback? onNextSameLevel;
   final VoidCallback? onBack;
   final String? backOptionText;
+  final String lang;
+
+  late Translate tr;
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +49,8 @@ class DoneSuccessOverlay extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   padding: const EdgeInsets.all(20),
-                  child: const Text(
-                    'VÝBORNĚ!\n\nTak a můžeš pokračovat.',
+                  child: Text(
+                    tr.success,
                     softWrap: true,
                   ),
                 ),
@@ -50,19 +58,19 @@ class DoneSuccessOverlay extends StatelessWidget {
             ],
           ),
           ElevatedButton.icon(
-            label: const Text('ZKUSIT TĚŽŠÍ'),
+            label: Text(tr.tryHarder),
             icon: const Icon(Icons.landscape),
             style: stadiumButtonStyle,
             onPressed: onNextUpLevel,
           ),
           ElevatedButton.icon(
-            label: const Text('JEŠTĚ STEJNĚ TĚŽKOU'),
+            label: Text(tr.sameDiff),
             icon: const Icon(Icons.compare_arrows),
             style: stadiumButtonStyle,
             onPressed: onNextSameLevel,
           ),
           ElevatedButton.icon(
-            label: Text(backOptionText!),
+            label: Text(tr.backDefault),
             icon: const Icon(Icons.assignment),
             style: stadiumButtonStyle,
             onPressed: onBack,

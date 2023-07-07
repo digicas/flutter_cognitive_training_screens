@@ -1,0 +1,12 @@
+success: VÝBORNĚ!\n\nTak a můžeš pokračovat.
+tryHarder: ZKUSIT TĚŽŠÍ
+sameDiff: JEŠTĚ STEJNĚ TĚŽKOU
+backDefault: ZPĚT NA HLAVNÍ VÝBĚR
+wrong: AJAJAJAJ!
+tryAgain: ZKUS TO OPRAVIT
+level(String info): "JSI NA ÚROVNI $info.\n\nCO PRO TEBE MŮŽU UDĚLAT?"
+back: NIC, CHCI ZPĚT
+imageOff: VYPNOUT OBRÁZEK
+imageOn: UKAZOVAT OBRÁZEK
+restart: VYČISTIT A ZAČÍT ZNOVU
+easier: MOC TĚŽKÉ, CHCI LEHČÍ

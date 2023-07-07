@@ -1,11 +1,18 @@
+import 'package:cvicebnice_overlays/locales/translate.i18n.dart';
+import 'package:cvicebnice_overlays/locales/translate_en.i18n.dart';
 import 'package:cvicebnice_overlays/overlays/shader_overlay.dart';
 import 'package:cvicebnice_overlays/utils.dart';
 import 'package:flutter/material.dart';
 
 class DoneWrongOverlay extends StatelessWidget {
-  const DoneWrongOverlay({super.key, this.onBackToLevel});
+  DoneWrongOverlay({super.key, this.onBackToLevel, this.lang = 'cs'}) {
+    tr = lang == 'cs' ? const Translate() : const TranslateEn();
+  }
 
   final VoidCallback? onBackToLevel;
+  final String lang;
+
+  late Translate tr;
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +37,8 @@ class DoneWrongOverlay extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   padding: const EdgeInsets.all(20),
-                  child: const Text(
-                    'AJAJAJAJ!',
+                  child: Text(
+                    tr.wrong,
                   ),
                 ),
               ),
@@ -39,7 +46,7 @@ class DoneWrongOverlay extends StatelessWidget {
           ),
           ElevatedButton.icon(
             autofocus: true,
-            label: const Text('ZKUS TO OPRAVIT'),
+            label: Text(tr.tryAgain),
             icon: const Icon(Icons.repeat),
             style: stadiumButtonStyle,
             onPressed: onBackToLevel,

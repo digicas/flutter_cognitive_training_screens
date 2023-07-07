@@ -2,6 +2,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_cognitive_training_screens/locales/translate.i18n.dart';
+import 'package:flutter_cognitive_training_screens/locales/translate_en.i18n.dart';
 import 'package:flutter_cognitive_training_screens/models/level_type.dart';
 import 'package:flutter_cognitive_training_screens/models/submission_controller.dart';
 import 'package:flutter_cognitive_training_screens/utils.dart';
@@ -20,6 +22,7 @@ class TaskScreen extends StatefulWidget {
     this.onBackOption,
     this.backOptionText,
     this.onLevelChanged,
+    this.lang = 'cs',
   });
 
   final Level level;
@@ -28,6 +31,7 @@ class TaskScreen extends StatefulWidget {
   final void Function(TriangleLevelType, int)? onLevelChanged;
   final VoidCallback? onBackOption;
   final String? backOptionText;
+  final String? lang;
 
   @override
   TaskScreenState createState() => TaskScreenState();
@@ -43,6 +47,8 @@ class TaskScreenState extends State<TaskScreen> {
   late SubmissionController submissionController;
   late KeyboardController<int?> keyboardController;
 
+  Translate tr = const Translate();
+
   int? focusedIndex;
 
   @override
@@ -55,13 +61,14 @@ class TaskScreenState extends State<TaskScreen> {
     optionsRequested = false;
     levelInit();
 
+    if (widget.lang == 'en') tr = const TranslateEn();
+
     super.initState();
-    
   }
 
   void levelInit() {
     _level.generate();
-    
+
     focusedIndex = null;
 
     submissionController = SubmissionController(level: _level)
@@ -147,7 +154,7 @@ class TaskScreenState extends State<TaskScreen> {
                       if (submissionController.isFilled)
                         ElevatedButton(
                           style: stadiumButtonStyle,
-                          child: const Text('HOTOVO?'),
+                          child: Text(tr.done),
                           onPressed: () {
                             setState(() {
                               taskSubmitted = true;
@@ -155,9 +162,10 @@ class TaskScreenState extends State<TaskScreen> {
                               if (!currentFocus.hasPrimaryFocus) {
                                 currentFocus.unfocus();
                               }
-                              if(taskSubmitted && submissionController.isSolved) {
+                              if (taskSubmitted &&
+                                  submissionController.isSolved) {
                                 widget.onLevelFinished
-                                  ?.call(widget.taskType, _level.levelIndex);
+                                    ?.call(widget.taskType, _level.levelIndex);
                               }
                             });
                           },
@@ -165,60 +173,63 @@ class TaskScreenState extends State<TaskScreen> {
                       else
                         ElevatedButton(
                           style: stadiumButtonStyle.copyWith(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors.white,
-                            ),
-                            side: MaterialStateProperty.all<BorderSide>(
-                              const BorderSide(
-                                color:  Color(0xff96365f),
-                                width: 1,
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                Colors.white,
                               ),
-                            )
+                              side: MaterialStateProperty.all<BorderSide>(
+                                const BorderSide(
+                                  color: Color(0xff96365f),
+                                  width: 1,
+                                ),
+                              )),
+                          child: Text(
+                            tr.navigation,
+                            style: const TextStyle(
+                              color: Colors.black,
+                            ),
                           ),
-                          child: const Text('Co můžu udělat?', style: TextStyle(
-                            color: Colors.black,
-                          ),),
-                          onPressed:() => setState(() => optionsRequested = true),
+                          onPressed: () =>
+                              setState(() => optionsRequested = true),
                         )
                     ],
                   ),
                 ),
               if (!taskSubmitted && optionsRequested)
                 OptionsOverlay(
-                  canDecreaseLevel: _level.levelIndex > 2,
-                  levelInfoText: '${_level.levelIndex} ze 100',
-                  showBackground: _showBackground,
-                  backOptionText: widget.backOptionText,
-                  onBack: widget.onBackOption ?? Navigator.of(context).pop,
-                  onBackToLevel: () {
-                    setState(() {
-                      optionsRequested = false;
-                    });
-                  },
-                  onRestartLevel: () {
-                    setState(() {
-                      submissionController.initiateForLevel(_level);
-                      optionsRequested = false;
-                    });
-                  },
-                  onSwitchBackgroundImage: () {
-                    setState(() {
-                      _showBackground = !_showBackground;
-                      optionsRequested = false;
-                    });
-                  },
-                  onDecreaseLevel: () {
-                    setState(
-                      () {
-                        _level = LevelTree.getLessDifficultLevel(_level);
-                        widget.onLevelChanged
-                            ?.call(widget.taskType, _level.levelIndex);
-                        levelRegenerate();
+                    canDecreaseLevel: _level.levelIndex > 2,
+                    levelInfoText: '${_level.levelIndex} ze 100',
+                    showBackground: _showBackground,
+                    backOptionText: widget.backOptionText,
+                    onBack: widget.onBackOption ?? Navigator.of(context).pop,
+                    onBackToLevel: () {
+                      setState(() {
                         optionsRequested = false;
-                      },
-                    );
-                  },
-                ),
+                      });
+                    },
+                    onRestartLevel: () {
+                      setState(() {
+                        submissionController.initiateForLevel(_level);
+                        optionsRequested = false;
+                      });
+                    },
+                    onSwitchBackgroundImage: () {
+                      setState(() {
+                        _showBackground = !_showBackground;
+                        optionsRequested = false;
+                      });
+                    },
+                    onDecreaseLevel: () {
+                      setState(
+                        () {
+                          _level = LevelTree.getLessDifficultLevel(_level);
+                          widget.onLevelChanged
+                              ?.call(widget.taskType, _level.levelIndex);
+                          levelRegenerate();
+                          optionsRequested = false;
+                        },
+                      );
+                    },
+                    lang: widget.lang),
               if (taskSubmitted && submissionController.isSolved)
                 DoneSuccessOverlay(
                   backOptionText: widget.backOptionText,
@@ -236,6 +247,7 @@ class TaskScreenState extends State<TaskScreen> {
                     widget.onLevelChanged
                         ?.call(widget.taskType, _level.levelIndex);
                   },
+                  lang: widget.lang,
                 ),
               if (taskSubmitted && !submissionController.isSolved)
                 DoneWrongOverlay(
@@ -244,6 +256,7 @@ class TaskScreenState extends State<TaskScreen> {
                       taskSubmitted = false;
                     });
                   },
+                  lang: widget.lang,
                 ),
               Positioned(
                 bottom: 0,
