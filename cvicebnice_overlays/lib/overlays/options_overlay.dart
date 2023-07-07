@@ -22,7 +22,7 @@ class OptionsOverlay extends StatelessWidget {
     this.backOptionText,
     this.lang = 'cs',
   }) {
-    tr = lang == 'cs' ? const Translate() : const TranslateEn();
+    if (lang == 'en') tr = const TranslateEn();
   }
 
   /// Callback when getting back from this options overlay
@@ -56,7 +56,7 @@ class OptionsOverlay extends StatelessWidget {
 
   final String lang;
 
-  late Translate tr;
+  Translate tr = const Translate();
 
   @override
   Widget build(BuildContext context) {

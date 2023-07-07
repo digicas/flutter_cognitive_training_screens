@@ -6,13 +6,13 @@ import 'package:flutter/material.dart';
 
 class DoneWrongOverlay extends StatelessWidget {
   DoneWrongOverlay({super.key, this.onBackToLevel, this.lang = 'cs'}) {
-    tr = lang == 'cs' ? const Translate() : const TranslateEn();
+    if (lang == 'en') tr = const TranslateEn();
   }
 
   final VoidCallback? onBackToLevel;
   final String lang;
 
-  late Translate tr;
+  Translate tr = const Translate();
 
   @override
   Widget build(BuildContext context) {

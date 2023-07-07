@@ -196,40 +196,41 @@ class TaskScreenState extends State<TaskScreen> {
                 ),
               if (!taskSubmitted && optionsRequested)
                 OptionsOverlay(
-                    canDecreaseLevel: _level.levelIndex > 2,
-                    levelInfoText: '${_level.levelIndex} ze 100',
-                    showBackground: _showBackground,
-                    backOptionText: widget.backOptionText,
-                    onBack: widget.onBackOption ?? Navigator.of(context).pop,
-                    onBackToLevel: () {
-                      setState(() {
+                  canDecreaseLevel: _level.levelIndex > 2,
+                  levelInfoText: '${_level.levelIndex} ze 100',
+                  showBackground: _showBackground,
+                  backOptionText: widget.backOptionText,
+                  onBack: widget.onBackOption ?? Navigator.of(context).pop,
+                  onBackToLevel: () {
+                    setState(() {
+                      optionsRequested = false;
+                    });
+                  },
+                  onRestartLevel: () {
+                    setState(() {
+                      submissionController.initiateForLevel(_level);
+                      optionsRequested = false;
+                    });
+                  },
+                  onSwitchBackgroundImage: () {
+                    setState(() {
+                      _showBackground = !_showBackground;
+                      optionsRequested = false;
+                    });
+                  },
+                  onDecreaseLevel: () {
+                    setState(
+                      () {
+                        _level = LevelTree.getLessDifficultLevel(_level);
+                        widget.onLevelChanged
+                            ?.call(widget.taskType, _level.levelIndex);
+                        levelRegenerate();
                         optionsRequested = false;
-                      });
-                    },
-                    onRestartLevel: () {
-                      setState(() {
-                        submissionController.initiateForLevel(_level);
-                        optionsRequested = false;
-                      });
-                    },
-                    onSwitchBackgroundImage: () {
-                      setState(() {
-                        _showBackground = !_showBackground;
-                        optionsRequested = false;
-                      });
-                    },
-                    onDecreaseLevel: () {
-                      setState(
-                        () {
-                          _level = LevelTree.getLessDifficultLevel(_level);
-                          widget.onLevelChanged
-                              ?.call(widget.taskType, _level.levelIndex);
-                          levelRegenerate();
-                          optionsRequested = false;
-                        },
-                      );
-                    },
-                    lang: widget.lang),
+                      },
+                    );
+                  },
+                  lang: widget.lang,
+            ),
               if (taskSubmitted && submissionController.isSolved)
                 DoneSuccessOverlay(
                   backOptionText: widget.backOptionText,

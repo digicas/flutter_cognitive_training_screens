@@ -1,2 +1,12 @@
-success: VÝBORNĚ!\n\nTak a můžeš pokračovat.
-tryHarder:
+success: GREAT!\n\n Let's Continue
+tryHarder: TRY HARDER
+sameDiff: SAME DIFFICULTY
+backDefault: BACK TO MAIN MENU
+wrong: AJAJAJAJ!
+tryAgain: TRY TO FIX IT
+level(String info): "YOU ARE AT LEVEL $info.\n\n WHAT CAN I DO FOR YOU?"
+back: GO BACK
+imageOff: HIDE IMAGE
+imageOn: SHOW IMAGE
+restart: CLEAR AND TRY AGAIN
+easier: TOO HARD, EASIER LEVEL

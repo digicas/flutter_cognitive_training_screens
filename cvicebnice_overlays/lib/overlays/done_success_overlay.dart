@@ -15,7 +15,7 @@ class DoneSuccessOverlay extends StatelessWidget {
     this.backOptionText,
     this.lang = 'cs',
   }) {
-    tr = lang == 'cs' ? const Translate() : const TranslateEn();
+    if (lang == 'en') tr = const TranslateEn();
   }
 
   final VoidCallback? onNextUpLevel;
@@ -24,7 +24,7 @@ class DoneSuccessOverlay extends StatelessWidget {
   final String? backOptionText;
   final String lang;
 
-  late Translate tr;
+  late Translate tr = const Translate();
 
   @override
   Widget build(BuildContext context) {
