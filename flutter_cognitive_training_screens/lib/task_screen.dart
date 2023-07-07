@@ -31,7 +31,7 @@ class TaskScreen extends StatefulWidget {
   final void Function(TriangleLevelType, int)? onLevelChanged;
   final VoidCallback? onBackOption;
   final String? backOptionText;
-  final String? lang;
+  final String lang;
 
   @override
   TaskScreenState createState() => TaskScreenState();
