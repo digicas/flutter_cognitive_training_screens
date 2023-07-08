@@ -36,9 +36,11 @@ class Translate {
   String get languageCode => "en";
   String get done => """HOTOVO ?""";
   String get navigation => """Co můžu udělat?""";
+  String get levelFrom => """ze""";
 }
 
 Map<String, String> get translateMap => {
       """done""": """HOTOVO ?""",
       """navigation""": """Co můžu udělat?""",
+      """levelFrom""": """ze""",
     };

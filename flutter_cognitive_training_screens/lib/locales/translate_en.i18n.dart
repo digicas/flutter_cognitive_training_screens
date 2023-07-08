@@ -37,9 +37,11 @@ class TranslateEn extends Translate {
   String get languageCode => "en";
   String get done => """DONE ?""";
   String get navigation => """What can I do ?""";
+  String get levelFrom => """FROM""";
 }
 
 Map<String, String> get translateEnMap => {
       """done""": """DONE ?""",
       """navigation""": """What can I do ?""",
+      """levelFrom""": """FROM""",
     };

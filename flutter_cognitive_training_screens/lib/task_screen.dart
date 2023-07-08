@@ -197,7 +197,7 @@ class TaskScreenState extends State<TaskScreen> {
               if (!taskSubmitted && optionsRequested)
                 OptionsOverlay(
                   canDecreaseLevel: _level.levelIndex > 2,
-                  levelInfoText: '${_level.levelIndex} ze 100',
+                  levelInfoText: '${_level.levelIndex} ${tr.levelFrom} 100',
                   showBackground: _showBackground,
                   backOptionText: widget.backOptionText,
                   onBack: widget.onBackOption ?? Navigator.of(context).pop,
