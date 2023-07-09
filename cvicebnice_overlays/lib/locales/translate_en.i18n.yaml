@@ -2,7 +2,7 @@ success: GREAT!\n\n Let's Continue
 tryHarder: TRY HARDER
 sameDiff: SAME DIFFICULTY
 backDefault: BACK TO MAIN MENU
-wrong: AJAJAJAJ!
+wrong: OOPS!
 tryAgain: TRY TO FIX IT
 level(String info): "YOU ARE AT LEVEL $info.\n\n WHAT CAN I DO FOR YOU?"
 back: GO BACK
