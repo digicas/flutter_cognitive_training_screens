@@ -64,6 +64,8 @@ class TaskScreenState extends State<TaskScreen> {
     if (widget.lang == 'en') tr = const TranslateEn();
 
     super.initState();
+
+    print('InitState of screen');
   }
 
   void levelInit() {
@@ -82,6 +84,7 @@ class TaskScreenState extends State<TaskScreen> {
 
     taskSubmitted = false;
     optionsRequested = false;
+    print('Level Init');
   }
 
   void levelRegenerate() {
