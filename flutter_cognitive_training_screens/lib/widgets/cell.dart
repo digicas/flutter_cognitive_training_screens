@@ -59,7 +59,6 @@ class Cell extends StatelessWidget {
                   )
                 : GestureDetector(
                     onTap: onSelected,
-                    onTapDown: (details) => print(details.toString()),
                     child: MouseRegion(
                       cursor: SystemMouseCursors.click,
                       child: Row(
@@ -122,7 +121,6 @@ class Cell extends StatelessWidget {
                 )
               : GestureDetector(
                   onTap: onSelected,
-                  onTapDown: (details) => print(details.toString()),
                   child: MouseRegion(
                     cursor: SystemMouseCursors.click,
                     child: Row(
