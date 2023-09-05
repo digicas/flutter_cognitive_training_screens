@@ -46,40 +46,46 @@ class Cell extends StatelessWidget {
                     ),
                   ],
           ),
-          child: Center(
-            child: !masked
-                ? Text(
-                    '$value',
-                    overflow: TextOverflow.fade,
-                    softWrap: false,
-                    style: const TextStyle(
-                      color: Color(0xffeeeeee),
-                      fontSize: 22,
-                    ),
-                  )
-                : GestureDetector(
-                    onTap: () {onSelected();},
-                    behavior: HitTestBehavior.opaque,
-                    child: MouseRegion(
-                      cursor: SystemMouseCursors.click,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            value != null ? '$value' : '',
-                            style: const TextStyle(
-                              fontSize: 22,
-                              color: Colors.black,
-                            ),
-                          ),
-                          if (isFocused)
-                            const BlinkingCursor(
-                              size: 22,
-                            ),
-                        ],
+
+          // : GestureDetector( // there are issues on Firefox with GestureDetector getting frozen
+          // onTap: () {onSelected();},
+          child: Listener(
+              onPointerUp: (pointerDetails) {
+                print("gesture detected: $pointerDetails");
+                if (masked) onSelected();},
+              behavior: HitTestBehavior.translucent,
+            child: Center(
+              child: !masked
+                  ? Text(
+                      '$value',
+                      overflow: TextOverflow.fade,
+                      softWrap: false,
+                      style: const TextStyle(
+                        color: Color(0xffeeeeee),
+                        fontSize: 22,
                       ),
+                    )
+                      : Container (
+                      // child: MouseRegion(
+                        // cursor: SystemMouseCursors.click,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              value != null ? '$value' : '',
+                              style: const TextStyle(
+                                fontSize: 22,
+                                color: Colors.black,
+                              ),
+                            ),
+                            if (isFocused)
+                              const BlinkingCursor(
+                                size: 22,
+                              ),
+                          ],
+                        ),
                     ),
-                  ),
+            ),
           ),
         ),
       );
@@ -109,42 +115,45 @@ class Cell extends StatelessWidget {
                   ),
                 ],
         ),
-        child: Center(
-          child: !masked
-              ? Text(
-                  '$value',
-                  overflow: TextOverflow.fade,
-                  softWrap: false,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 22,
-                  ),
-                )
-              : GestureDetector(
-                  onTap: () {
-                    print("gesture detected");
-                    onSelected();},
-                  behavior: HitTestBehavior.opaque,
-                  child: MouseRegion(
-                    cursor: SystemMouseCursors.click,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          value != null ? '$value' : '',
-                          style: const TextStyle(
-                            fontSize: 22,
-                            color: Colors.black,
-                          ),
-                        ),
-                        if (isFocused)
-                          const BlinkingCursor(
-                            size: 22,
-                          ),
-                      ],
+          // : GestureDetector( // there are issues on Firefox with GestureDetector getting frozen
+          // onTap: () {onSelected();},
+        child: Listener(
+          onPointerUp: (pointerDetails) {
+            print("gesture detected: $pointerDetails");
+            if (masked) onSelected();},
+          behavior: HitTestBehavior.translucent,
+          child: Center(
+            child: !masked
+                ? Text(
+                    '$value',
+                    overflow: TextOverflow.fade,
+                    softWrap: false,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 22,
                     ),
-                  ),
-                ),
+                  )
+                : Container(
+                      // cursor: SystemMouseCursors.click,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            value != null ? '$value' : '',
+                            style: const TextStyle(
+                              fontSize: 22,
+                              color: Colors.black,
+                            ),
+                          ),
+                          if (isFocused)
+                            const BlinkingCursor(
+                              size: 22,
+                            ),
+                        ],
+                      ),
+                    ),
+                  
+          ),
         ),
       ),
     );
