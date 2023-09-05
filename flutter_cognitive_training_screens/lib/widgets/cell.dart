@@ -9,14 +9,14 @@ class Cell extends StatelessWidget {
     this.masked = false,
     required this.hint,
     this.cellType = CellType.box,
-    this.onSelected,
+    required this.onSelected,
     this.isFocused = false,
   });
   final int? value;
   final bool masked;
   final bool hint;
   final CellType cellType;
-  final VoidCallback? onSelected;
+  final VoidCallback onSelected;
   final bool isFocused;
 
   @override
@@ -58,7 +58,8 @@ class Cell extends StatelessWidget {
                     ),
                   )
                 : GestureDetector(
-                    onTap: onSelected,
+                    onTap: () {onSelected();},
+                    behavior: HitTestBehavior.opaque,
                     child: MouseRegion(
                       cursor: SystemMouseCursors.click,
                       child: Row(
@@ -120,7 +121,10 @@ class Cell extends StatelessWidget {
                   ),
                 )
               : GestureDetector(
-                  onTap: onSelected,
+                  onTap: () {
+                    print("gesture detected");
+                    onSelected();},
+                  behavior: HitTestBehavior.opaque,
                   child: MouseRegion(
                     cursor: SystemMouseCursors.click,
                     child: Row(

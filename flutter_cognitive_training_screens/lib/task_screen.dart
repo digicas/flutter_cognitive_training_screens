@@ -130,6 +130,7 @@ class TaskScreenState extends State<TaskScreen> {
                     focusedIndex: focusedIndex,
                     onSelected: (index) => setState(() {
                       focusedIndex = index;
+                      print('focusedIndex: $focusedIndex');
                     }),
                   ),
                 ),
