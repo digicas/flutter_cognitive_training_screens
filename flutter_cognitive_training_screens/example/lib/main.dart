@@ -7,8 +7,23 @@ import 'package:levels_dart_pyramid_funnels/models/level_tree/level_tree.dart';
 
 
 void main() {
+  // paint debugs
+  debugPaintSizeEnabled = false;
+  debugPaintBaselinesEnabled = false;
+  debugPaintLayerBordersEnabled = false;
+  debugRepaintRainbowEnabled = false;
+  debugRepaintTextRainbowEnabled = false;
+
+  // interaction related
   debugPaintPointersEnabled = true;
   debugPrintGestureArenaDiagnostics = true;
+  debugPrintRecognizerCallbacksTrace = true;
+
+  debugDisableClipLayers = false;
+  debugDisablePhysicalShapeLayers = false;
+  debugDisableOpacityLayers = false;
+
+
   runApp(const FunnelExampleApp());
 }
 
