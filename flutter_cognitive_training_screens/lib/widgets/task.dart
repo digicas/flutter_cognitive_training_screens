@@ -15,7 +15,7 @@ class Task extends StatelessWidget {
     required this.hint,
     this.showBackground = true,
     this.renderType = TriangleLevelType.funnel,
-    this.onSelected,
+    required this.onSelected,
     this.focusedIndex,
   });
   final Level level;
@@ -26,7 +26,7 @@ class Task extends StatelessWidget {
   /// task type to render (RenderType.Pyramid or RenderType.Funnel)
   final TriangleLevelType renderType;
 
-  final void Function(int)? onSelected;
+  final void Function(int) onSelected;
   final int? focusedIndex;
 
   @override
@@ -46,7 +46,8 @@ class Task extends StatelessWidget {
             value: submissionController.cells[i],
             masked: !level.solutionMask.mask[i],
             onSelected: () {
-              if (!level.solutionMask.mask[i]) onSelected?.call(i);
+              if (!level.solutionMask.mask[i]) onSelected(i);
+              print('selected cell: $i, masked: ${level.solutionMask.mask[i]}');
             },
             isFocused: focusedIndex == i,
             hint: hint,
